@@ -1,11 +1,11 @@
-from typing import Any, Callable, Dict, Protocol
+from typing import Any, Dict, Protocol
 
 
 class HttpServer(Protocol):
-    def serve(self) -> None:
+    def serve(self, port: int = 8000) -> None:
         ...
 
-    def on(self, method: str, url: str, controller: Callable) -> None:
+    def on(self, method: str, url: str, controller: "Controller") -> None:
         ...
 
 
