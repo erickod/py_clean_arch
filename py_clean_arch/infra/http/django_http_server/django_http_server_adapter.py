@@ -9,7 +9,7 @@ from django.http import HttpRequest, JsonResponse
 from django.urls import path
 from django.views.decorators.http import require_http_methods
 
-from fastapi_clean_arch.application.protocols.controller_protocol import Controller
+from py_clean_arch.application.protocols.controller_protocol import Controller
 
 
 class Borg(object):
@@ -31,7 +31,7 @@ class DjangoHttpServer(Borg):
     def __init__(self) -> None:
         environ.setdefault(
             "DJANGO_SETTINGS_MODULE",
-            "fastapi_clean_arch.infra.http.django_http_server.django_http_server.settings",
+            "py_clean_arch.infra.http.django_http_server.django_http_server.settings",
         )
         django.setup()
         self.urlpatterns: List[Any] = getattr(

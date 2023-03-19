@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from fastapi_clean_arch.application.protocols.controller_protocol import Controller
+from py_clean_arch.application.protocols.controller_protocol import Controller
 
 
 class FastApiHttpServer:

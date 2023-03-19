@@ -1,10 +1,10 @@
-from fastapi_clean_arch.infra.controllers.health_check_controller import (
+from py_clean_arch.infra.controllers.health_check_controller import (
     HealthCheckController,
     HealthCheckUseCase,
 )
-from fastapi_clean_arch.infra.http.django_http_server import DjangoHttpServer
-from fastapi_clean_arch.infra.http.fastapi_http_server import FastApiHttpServer
-from fastapi_clean_arch.infra.http.flask_http_server import FlaskHttpServer
+from py_clean_arch.infra.http.django_http_server import DjangoHttpServer
+from py_clean_arch.infra.http.fastapi_http_server import FastApiHttpServer
+from py_clean_arch.infra.http.flask_http_server import FlaskHttpServer
 
 # server = DjangoHttpServer()
 # server = FlaskHttpServer()

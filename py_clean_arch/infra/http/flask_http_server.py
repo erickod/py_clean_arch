@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 from flask import Flask, Request, request
 
-from fastapi_clean_arch.application.protocols.controller_protocol import Controller
+from py_clean_arch.application.protocols.controller_protocol import Controller
 
 
 class FlaskHttpServer:

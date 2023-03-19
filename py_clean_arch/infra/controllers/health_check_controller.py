@@ -1,11 +1,11 @@
 from typing import Any, Dict
 
-from fastapi_clean_arch.application.health_check import (
+from py_clean_arch.application.health_check import (
     HealthCheckInput,
     HealthCheckOutput,
     HealthCheckUseCase,
 )
-from fastapi_clean_arch.application.protocols.controller_protocol import HttpServer
+from py_clean_arch.application.protocols.controller_protocol import HttpServer
 
 
 class HealthCheckController:

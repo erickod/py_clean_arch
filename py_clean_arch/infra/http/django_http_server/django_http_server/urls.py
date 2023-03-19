@@ -18,7 +18,7 @@ import contextlib
 
 urlpatterns = []
 with contextlib.suppress(ModuleNotFoundError):
-    from fastapi_clean_arch.infra.http.django_http_server.django_http_server_adapter import (
+    from py_clean_arch.infra.http.django_http_server.django_http_server_adapter import (
         DjangoHttpServer,
     )
 

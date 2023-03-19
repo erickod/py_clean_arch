@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "fastapi-clean-arch"
+name = "py-clean-arch"
 version = "0.1.0"
 description = ""
 authors = ["Erick Duarte <erickod@gmail.com>"]
 readme = "README.md"
-packages = [{include = "fastapi_clean_arch"}]
+packages = [{include = "py_clean_arch"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
