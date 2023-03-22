@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import Dict
+from dataclasses import asdict, dataclass
+from typing import Any, Dict
 
 
 @dataclass
@@ -11,6 +11,9 @@ class HealthCheckInput:
 class HealthCheckOutput:
     http_server: str
     status: str
+
+    def asdict(self) -> Dict[str, Any]:
+        return asdict(self)
 
 
 class HealthCheckUseCase:

@@ -1,5 +1,8 @@
 from typing import Any, Dict, Protocol
 
+from py_clean_arch.infra.http.helpers.http_request import HttpRequest
+from py_clean_arch.infra.http.helpers.http_response import HttpResponse
+
 
 class HttpServer(Protocol):
     def serve(self, port: int = 8000) -> None:
@@ -15,5 +18,5 @@ class Controller(Protocol):
     def __init__(self, http_server: HttpServer) -> None:
         ...
 
-    def handle(self, body: Dict[Any, Any] = {}, params: Dict[Any, Any] = {}) -> Any:
+    def handle(self, request: HttpRequest) -> HttpResponse:
         ...
