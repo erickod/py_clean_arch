@@ -1,4 +1,7 @@
+import functools
 import json
+import types
+from datetime import datetime
 from typing import Any, Dict
 
 from flask import Flask, Request, Response, request
@@ -16,6 +19,20 @@ def get_query_params_as_dict(request: Request) -> Dict[Any, Any]:
             continue
         query_params[key] = value
     return query_params
+
+
+def make_func(f, name: str = ""):
+    """Based on http://stackoverflow.com/a/6528148/190597 (Glenn Maynard)"""
+    g = types.FunctionType(
+        f.__code__,
+        f.__globals__,
+        name=f"{name}-{f.__name__}",
+        argdefs=f.__defaults__,
+        closure=f.__closure__,
+    )
+    g = functools.update_wrapper(g, f)
+    g.__kwdefaults__ = f.__kwdefaults__
+    return g
 
 
 class FlaskHttpServer:
@@ -45,5 +62,11 @@ class FlaskHttpServer:
                 content_type="application/json",
             )
 
+        view.__name__ = controller.__class__.__name__
         self._app.add_url_rule(url, None, view, methods=[method.upper()])
-        self._app.add_url_rule(url + "/", None, view, methods=[method.upper()])
+        self._app.add_url_rule(
+            url + "/",
+            None,
+            view,
+            methods=[method.upper()],
+        )
